@@ -1,9 +1,12 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Primary deploy is the prebuilt `gh-pages` branch (Settings > Pages >
-  # Deploy from a branch). This Actions workflow is kept for optional
-  # "GitHub Actions" source deploys — run it manually from the Actions tab.
+  # Auto-deploy on every push to the working branch (and main, if it exists).
+  # Requires: Settings > Pages > Source = "GitHub Actions" (one-time).
+  push:
+    branches:
+      - main
+      - claude/premium-portfolio-design-edh17m
   workflow_dispatch:
 
 permissions:
