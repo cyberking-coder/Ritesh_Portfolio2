@@ -1,0 +1,19 @@
+# Render Blueprint — deploys this Vite site as a static site.
+# Render serves at the domain root, so the default Vite base "/" is correct
+# (the GITHUB_PAGES env var is intentionally NOT set here).
+services:
+  - type: web
+    name: ritesh-portfolio
+    runtime: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    # SPA-style fallback so any path serves the app (harmless for this single page)
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    headers:
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable
+    autoDeploy: true
