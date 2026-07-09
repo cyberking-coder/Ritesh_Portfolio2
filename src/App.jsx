@@ -228,11 +228,22 @@ function ProjectCard({ p, i }) {
     <Reveal className={`project-card glass ${p.featured ? "wide" : ""}`} i={i}>
       <div ref={ref} onMouseMove={onMove} onMouseLeave={onLeave} style={{ transition: "transform 0.3s" }}>
         <div className="project-media">
-          <img src={p.image} alt={p.title} loading="lazy" />
+          {p.image ? (
+            <img src={p.image} alt={p.title} loading="lazy" />
+          ) : (
+            <div className="project-poster" style={{ background: p.poster }}>
+              <span className="poster-glow" style={{ background: `radial-gradient(circle, ${p.accent}55, transparent 65%)` }} />
+              <span className="poster-cat" style={{ color: p.accent }}>{p.category}</span>
+              <span className="poster-title">{p.title}</span>
+              <span className="poster-dot" style={{ background: p.accent }} />
+            </div>
+          )}
           <span className="project-year glass">{p.year}</span>
         </div>
         <div className="project-body">
-          <div className="project-cat" style={{ color: p.accent }}>{p.category}</div>
+          <div className="project-cat" style={{ color: p.accent }}>
+            {p.category}{p.client ? ` · ${p.client}` : ""}
+          </div>
           <h3 className="project-title">{p.title}</h3>
           <p className="project-desc">{p.description}</p>
           <div className="project-tech">

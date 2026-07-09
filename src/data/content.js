@@ -1,76 +1,107 @@
 // ============================================================================
 //  EDIT THIS FILE to update your portfolio content.
 //  Everything the site renders (identity, projects, skills, links) lives here.
+//
+//  PROJECT IMAGES: drop a screenshot into `public/projects/<name>.png` and set
+//  `image: "./projects/<name>.png"` on that project. If `image` is omitted, a
+//  premium on-theme gradient "poster" is generated automatically.
 // ============================================================================
 
 export const identity = {
   name: "Ritesh Kelkar",
   role: "Website & App Developer",
   tagline:
-    "I craft immersive, high-performance web & mobile experiences — blending clean engineering with cinematic design.",
+    "I build premium websites and apps end-to-end — cinematic front-ends, real payment flows, and conversion-focused experiences that turn visitors into customers.",
   location: "India",
   availableForWork: true,
-  resumeUrl: "", // e.g. "/resume.pdf"
+  resumeUrl: "",
 };
 
 export const about = {
-  heading: "Building digital products that feel alive.",
+  heading: "Websites & apps that look premium and convert.",
   paragraphs: [
-    "I'm Ritesh Kelkar, a website and app developer who lives at the intersection of design and engineering. I turn ideas into fast, polished, memorable products — from responsive marketing sites to full-featured applications.",
-    "My focus is on the details that make software feel premium: fluid motion, thoughtful interaction, and interfaces that respond to the person using them. I ship, iterate, and obsess over the last 10%.",
+    "I'm Ritesh Kelkar, a website and app developer. I ship complete products — from cinematic marketing sites and real-estate launches to full payment platforms with Razorpay, dashboards, and conversion tracking.",
+    "My work spans the whole stack: polished React / Next.js front-ends, Node/Express + MySQL back-ends, and the motion & detail that make an interface feel high-end. I care about the last 10% — the animations, the load time, the checkout that actually works.",
   ],
   stats: [
-    { value: "3+", label: "Years Building" },
-    { value: "20+", label: "Projects Shipped" },
-    { value: "100%", label: "Passion" },
+    { value: "5+", label: "Live Products" },
+    { value: "8+", label: "Industries" },
+    { value: "100%", label: "Hands-on Built" },
   ],
 };
 
 // ---------------------------------------------------------------------------
-//  PROJECTS  — add / edit freely. `image` can be a URL or an imported asset.
-//  `live` = GitHub Pages / deployed link. `source` = repo link (optional).
+//  PROJECTS
 // ---------------------------------------------------------------------------
 export const projects = [
   {
-    title: "Optimasi Prompt — Leonardo AI",
-    category: "AI / Design",
-    year: "2024",
+    title: "ForexGreek.com",
+    category: "Payments · EdTech",
+    year: "2026",
+    client: "Rohan Kelkar",
     description:
-      "A curated showcase of AI-generated concept art and an interactive prompt-engineering explorer. Digital illustration meets a slick, glassy UI for browsing and remixing prompts.",
-    tech: ["React", "AI Prompting", "Glassmorphism UI"],
-    image:
-      "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop",
-    live: "https://cyberking-coder.github.io/",
+      "A forex-course selling platform engineered to convert. Cinematic video intro, a live currency ticker, a slick enrollment modal, an end-to-end Razorpay payment flow, and full conversion tracking — built to turn visitors into paying students.",
+    tech: ["HTML", "Express / Node.js", "MySQL", "Razorpay", "GTM / Pixel"],
+    live: "https://www.forexgreek.in",
     source: "",
-    accent: "#7cf0a8",
+    accent: "#34e39b",
+    poster: "linear-gradient(135deg,#03130d 0%,#062a1c 45%,#0b3d29 100%)",
     featured: true,
   },
   {
-    title: "Skinwalker: Hunting",
-    category: "Interactive / Cinematic",
-    year: "2024",
+    title: "Basil Vrundavan",
+    category: "Real Estate · Property Launch",
+    year: "2026",
+    client: "",
     description:
-      "A moody, film-poster-style landing experience with a horror-cinematic aesthetic — layered depth, atmospheric lighting, and a bold editorial layout inspired by streaming platforms.",
-    tech: ["JavaScript", "CSS Animations", "Cinematic UI"],
-    image:
-      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1200&auto=format&fit=crop",
-    live: "https://cyberking-coder.github.io/",
+      "A premium property-launch site for a residential tower — a cinematic sunset hero, curated amenities and residences, and a smooth “Book a Visit” flow. Motion-rich and built to sell the lifestyle.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "GSAP", "Framer Motion"],
+    live: "https://cyberking-coder.github.io/basil_vrundavan",
+    source: "",
+    accent: "#ff9d5c",
+    poster: "linear-gradient(135deg,#1a0e07 0%,#3a1d0c 45%,#7a3d14 100%)",
+    featured: false,
+  },
+  {
+    title: "Basil Vrundavan — Residences",
+    category: "Real Estate · Editorial",
+    year: "2026",
+    client: "",
+    description:
+      "An alternate editorial design for the same launch — a serif “Culture of Excellence” hero, MahaRERA details, amenities, and a downloadable brochure. Quieter, more luxury-print in feel.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    live: "https://real-estate-omsis7c3b-ritesh-s-projects9.vercel.app",
+    source: "",
+    accent: "#d9b26a",
+    poster: "linear-gradient(135deg,#14110a 0%,#2b2415 50%,#4a3f22 100%)",
+    featured: false,
+  },
+  {
+    title: "Gurukul Academy",
+    category: "Coaching Institute",
+    year: "2026",
+    client: "Gurukul Academy",
+    description:
+      "A landing site for a Pune coaching institute (Class 8–12) — programs, a photo gallery, Google reviews, and WhatsApp-driven enrollment, all in a polished dark-gold theme.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Lucide"],
+    live: "https://cyberking-coder.github.io/gurukul_academy",
     source: "",
     accent: "#ffd76a",
-    featured: true,
+    poster: "linear-gradient(135deg,#100d05 0%,#26200c 50%,#43391a 100%)",
+    featured: false,
   },
   {
-    title: "Project Three",
-    category: "Web App",
-    year: "2025",
+    title: "LookOut Salon & Academy",
+    category: "Salon · Booking",
+    year: "2023",
+    client: "LookOut Salon & Academy",
     description:
-      "Replace this with a real project. Add a short, punchy description of what it does and what makes it special.",
-    tech: ["React", "Vite", "Node"],
-    image:
-      "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop",
-    live: "https://cyberking-coder.github.io/",
+      "A bold, high-contrast site for a Mumbai salon & academy — services, gallery, reviews, and a chair-reservation booking flow. Loud, confident, and unmistakably branded.",
+    tech: ["HTML", "CSS", "JavaScript"],
+    live: "https://cyberking-coder.github.io/lookout_salon.com",
     source: "",
-    accent: "#8ab4ff",
+    accent: "#ff4d4d",
+    poster: "linear-gradient(135deg,#1a0505 0%,#3a0b0b 45%,#7a1414 100%)",
     featured: false,
   },
 ];
@@ -79,9 +110,9 @@ export const projects = [
 //  SKILLS
 // ---------------------------------------------------------------------------
 export const skills = [
-  "React", "JavaScript", "TypeScript", "HTML5", "CSS3", "Vite",
-  "Node.js", "Framer Motion", "React Native", "Tailwind", "Figma",
-  "UI / UX", "Glassmorphism", "Responsive Design", "Git",
+  "React", "Next.js", "TypeScript", "JavaScript", "Node.js", "Express",
+  "MySQL", "Tailwind CSS", "Framer Motion", "GSAP", "Razorpay",
+  "HTML5", "CSS3", "GTM / Pixel", "UI / UX", "Responsive Design",
 ];
 
 // ---------------------------------------------------------------------------
@@ -90,5 +121,5 @@ export const skills = [
 export const socials = [
   { label: "GitHub", url: "https://github.com/cyberking-coder", handle: "@cyberking-coder" },
   { label: "Email", url: "mailto:ar.happinessmovement@gmail.com", handle: "ar.happinessmovement@gmail.com" },
-  { label: "LinkedIn", url: "", handle: "Add your LinkedIn" },
+  { label: "Portfolio", url: "https://riteshportfolio2026.framer.website", handle: "riteshportfolio2026.framer.website" },
 ];
