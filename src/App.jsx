@@ -3,6 +3,9 @@ import { AnimatePresence, motion, useScroll, useSpring, useTransform } from "fra
 import "./App.css";
 import { identity, about, projects, skills, socials } from "./data/content";
 
+/* prefix a public asset path with the deploy base (works in dev + GitHub Pages) */
+const asset = (p) => (p ? import.meta.env.BASE_URL + p.replace(/^\.?\//, "") : p);
+
 /* ---------- animation presets ---------- */
 const fadeUp = {
   hidden: { opacity: 0, y: 34 },
@@ -148,7 +151,7 @@ function Hero() {
           transition={{ duration: 0.9, delay: 0.4, ease: [0.2, 0.7, 0.2, 1] }}
         >
           {identity.avatar ? (
-            <img className="avatar" src={identity.avatar} alt={identity.name} />
+            <img className="avatar" src={asset(identity.avatar)} alt={identity.name} />
           ) : (
             <div className="avatar-fallback">{words.map((w) => w[0]).join("")}</div>
           )}
@@ -238,7 +241,7 @@ function ProjectCard({ p, i, onOpen }) {
           style={{ cursor: hasGallery ? "zoom-in" : "default" }}
         >
           {p.image ? (
-            <img src={p.image} alt={p.title} loading="lazy" />
+            <img src={asset(p.image)} alt={p.title} loading="lazy" />
           ) : (
             <div className="project-poster" style={{ background: p.poster }}>
               <span className="poster-glow" style={{ background: `radial-gradient(circle, ${p.accent}55, transparent 65%)` }} />
@@ -324,7 +327,7 @@ function Lightbox({ project, index, setIndex, onClose }) {
         </div>
         <div className="lightbox-stage">
           <button className="lb-nav prev" onClick={() => setIndex((i) => (i - 1 + imgs.length) % imgs.length)} aria-label="previous">‹</button>
-          <motion.img key={index} src={imgs[index]} alt="" className="lightbox-img"
+          <motion.img key={index} src={asset(imgs[index])} alt="" className="lightbox-img"
             initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.35 }} />
           <button className="lb-nav next" onClick={() => setIndex((i) => (i + 1) % imgs.length)} aria-label="next">›</button>
         </div>
@@ -332,7 +335,7 @@ function Lightbox({ project, index, setIndex, onClose }) {
           {imgs.map((src, k) => (
             <button key={src} className={`lb-thumb ${k === index ? "on" : ""}`} onClick={() => setIndex(k)}
               style={{ borderColor: k === index ? project.accent : "transparent" }}>
-              <img src={src} alt="" />
+              <img src={asset(src)} alt="" />
             </button>
           ))}
         </div>
