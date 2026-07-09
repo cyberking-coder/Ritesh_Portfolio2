@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useSpring, useTransform } from "framer-motion";
+import { AnimatePresence, motion, useScroll, useSpring, useTransform } from "framer-motion";
 import "./App.css";
 import { identity, about, projects, skills, socials } from "./data/content";
 
@@ -147,7 +147,11 @@ function Hero() {
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
           transition={{ duration: 0.9, delay: 0.4, ease: [0.2, 0.7, 0.2, 1] }}
         >
-          <div className="avatar-fallback">{words.map((w) => w[0]).join("")}</div>
+          {identity.avatar ? (
+            <img className="avatar" src={identity.avatar} alt={identity.name} />
+          ) : (
+            <div className="avatar-fallback">{words.map((w) => w[0]).join("")}</div>
+          )}
           <motion.div
             className="chip chip-1"
             animate={{ y: [0, -10, 0] }}
@@ -211,7 +215,7 @@ function About() {
 }
 
 /* ---------- project card w/ tilt ---------- */
-function ProjectCard({ p, i }) {
+function ProjectCard({ p, i, onOpen }) {
   const ref = useRef(null);
   const onMove = (e) => {
     const el = ref.current;
@@ -224,10 +228,15 @@ function ProjectCard({ p, i }) {
   const onLeave = () => {
     if (ref.current) ref.current.style.transform = "";
   };
+  const hasGallery = p.gallery && p.gallery.length > 0;
   return (
     <Reveal className={`project-card glass ${p.featured ? "wide" : ""}`} i={i}>
       <div ref={ref} onMouseMove={onMove} onMouseLeave={onLeave} style={{ transition: "transform 0.3s" }}>
-        <div className="project-media">
+        <div
+          className="project-media"
+          onClick={() => hasGallery && onOpen(0)}
+          style={{ cursor: hasGallery ? "zoom-in" : "default" }}
+        >
           {p.image ? (
             <img src={p.image} alt={p.title} loading="lazy" />
           ) : (
@@ -239,6 +248,11 @@ function ProjectCard({ p, i }) {
             </div>
           )}
           <span className="project-year glass">{p.year}</span>
+          {hasGallery && (
+            <span className="project-gallery-badge glass">
+              ⛶ {p.gallery.length} shots
+            </span>
+          )}
         </div>
         <div className="project-body">
           <div className="project-cat" style={{ color: p.accent }}>
@@ -255,6 +269,11 @@ function ProjectCard({ p, i }) {
                 ↗ Live Demo
               </a>
             )}
+            {hasGallery && (
+              <button className="plink src" onClick={() => onOpen(0)}>
+                ⛶ Gallery
+              </button>
+            )}
             {p.source && (
               <a className="plink src" href={p.source} target="_blank" rel="noreferrer">
                 {"< >"} Source
@@ -267,7 +286,65 @@ function ProjectCard({ p, i }) {
   );
 }
 
+/* ---------- lightbox gallery ---------- */
+function Lightbox({ project, index, setIndex, onClose }) {
+  const imgs = project.gallery;
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === "Escape") onClose();
+      if (e.key === "ArrowRight") setIndex((i) => (i + 1) % imgs.length);
+      if (e.key === "ArrowLeft") setIndex((i) => (i - 1 + imgs.length) % imgs.length);
+    };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [imgs.length, onClose, setIndex]);
+
+  return (
+    <motion.div
+      className="lightbox"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={onClose}
+    >
+      <div className="lightbox-inner glass" onClick={(e) => e.stopPropagation()}>
+        <div className="lightbox-head">
+          <div>
+            <div className="lightbox-cat" style={{ color: project.accent }}>{project.category}</div>
+            <div className="lightbox-title">{project.title}</div>
+          </div>
+          <div className="lightbox-actions">
+            <a className="plink live" href={project.live} target="_blank" rel="noreferrer">↗ Visit live</a>
+            <button className="lightbox-close" onClick={onClose} aria-label="close">✕</button>
+          </div>
+        </div>
+        <div className="lightbox-stage">
+          <button className="lb-nav prev" onClick={() => setIndex((i) => (i - 1 + imgs.length) % imgs.length)} aria-label="previous">‹</button>
+          <motion.img key={index} src={imgs[index]} alt="" className="lightbox-img"
+            initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.35 }} />
+          <button className="lb-nav next" onClick={() => setIndex((i) => (i + 1) % imgs.length)} aria-label="next">›</button>
+        </div>
+        <div className="lightbox-thumbs">
+          {imgs.map((src, k) => (
+            <button key={src} className={`lb-thumb ${k === index ? "on" : ""}`} onClick={() => setIndex(k)}
+              style={{ borderColor: k === index ? project.accent : "transparent" }}>
+              <img src={src} alt="" />
+            </button>
+          ))}
+        </div>
+      </div>
+    </motion.div>
+  );
+}
+
 function Projects() {
+  const [active, setActive] = useState(null); // project index
+  const [slide, setSlide] = useState(0);
+  const open = (pi, si) => { setActive(pi); setSlide(si); };
   return (
     <section id="work">
       <div className="container">
@@ -278,12 +355,24 @@ function Projects() {
               Projects I've <span className="gradient-text">crafted</span>
             </Reveal>
           </div>
-          <Reveal className="muted" i={2}>A blend of engineering &amp; cinematic design.</Reveal>
+          <Reveal className="muted" i={2}>Click any project to explore the full build.</Reveal>
         </div>
         <div className="projects-grid">
-          {projects.map((p, i) => <ProjectCard key={p.title} p={p} i={i} />)}
+          {projects.map((p, i) => (
+            <ProjectCard key={p.title} p={p} i={i} onOpen={(si) => open(i, si)} />
+          ))}
         </div>
       </div>
+      <AnimatePresence>
+        {active !== null && (
+          <Lightbox
+            project={projects[active]}
+            index={slide}
+            setIndex={setSlide}
+            onClose={() => setActive(null)}
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 }

@@ -15,6 +15,7 @@ export const identity = {
   location: "India",
   availableForWork: true,
   resumeUrl: "",
+  avatar: "./brand/ritesh-3.png",
 };
 
 export const about = {
@@ -46,6 +47,12 @@ export const projects = [
     source: "",
     accent: "#34e39b",
     poster: "linear-gradient(135deg,#03130d 0%,#062a1c 45%,#0b3d29 100%)",
+    image: "./projects/forex-1.png",
+    gallery: [
+      "./projects/forex-1.png", "./projects/forex-3.png", "./projects/forex-4.png",
+      "./projects/forex-5.png", "./projects/forex-7.png", "./projects/forex-2.png",
+      "./projects/forex-6.png",
+    ],
     featured: true,
   },
   {
@@ -60,6 +67,12 @@ export const projects = [
     source: "",
     accent: "#ff9d5c",
     poster: "linear-gradient(135deg,#1a0e07 0%,#3a1d0c 45%,#7a3d14 100%)",
+    image: "./projects/basil-2.png",
+    gallery: [
+      "./projects/basil-2.png", "./projects/basil-3.png", "./projects/basil-4.png",
+      "./projects/basil-5.png", "./projects/basil-6.png", "./projects/basil-7.png",
+      "./projects/basil-1.png",
+    ],
     featured: false,
   },
   {
@@ -74,6 +87,12 @@ export const projects = [
     source: "",
     accent: "#d9b26a",
     poster: "linear-gradient(135deg,#14110a 0%,#2b2415 50%,#4a3f22 100%)",
+    image: "./projects/basiled-1.png",
+    gallery: [
+      "./projects/basiled-1.png", "./projects/basiled-2.png", "./projects/basiled-3.png",
+      "./projects/basiled-4.png", "./projects/basiled-6.png", "./projects/basiled-7.png",
+      "./projects/basiled-5.png",
+    ],
     featured: false,
   },
   {
@@ -88,6 +107,11 @@ export const projects = [
     source: "",
     accent: "#ffd76a",
     poster: "linear-gradient(135deg,#100d05 0%,#26200c 50%,#43391a 100%)",
+    image: "./projects/gurukul-1.png",
+    gallery: [
+      "./projects/gurukul-1.png", "./projects/gurukul-2.png", "./projects/gurukul-3.png",
+      "./projects/gurukul-4.png", "./projects/gurukul-5.png",
+    ],
     featured: false,
   },
   {
@@ -102,6 +126,11 @@ export const projects = [
     source: "",
     accent: "#ff4d4d",
     poster: "linear-gradient(135deg,#1a0505 0%,#3a0b0b 45%,#7a1414 100%)",
+    image: "./projects/lookout-1.png",
+    gallery: [
+      "./projects/lookout-1.png", "./projects/lookout-2.png", "./projects/lookout-3.png",
+      "./projects/lookout-4.png", "./projects/lookout-5.png", "./projects/lookout-6.png",
+    ],
     featured: false,
   },
 ];
