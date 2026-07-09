@@ -15,7 +15,7 @@ export const identity = {
   location: "India",
   availableForWork: true,
   resumeUrl: "",
-  avatar: "brand/ritesh-3.png",
+  avatar: "hero-img.png",
 };
 
 export const about = {
