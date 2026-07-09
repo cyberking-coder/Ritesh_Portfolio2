@@ -158,5 +158,4 @@ export const socials = [
   { label: "GitHub", url: "https://github.com/cyberking-coder", handle: "@cyberking-coder" },
   { label: "Email", url: `mailto:${contact.email}`, handle: contact.email },
   { label: "Phone", url: `tel:${contact.phone.replace(/\s/g, "")}`, handle: contact.phone },
-  { label: "Portfolio", url: "https://riteshportfolio2026.framer.website", handle: "riteshportfolio2026.framer.website" },
 ];
