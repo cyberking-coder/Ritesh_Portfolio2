@@ -63,7 +63,7 @@ export const projects = [
     description:
       "A premium property-launch site for a residential tower — a cinematic sunset hero, curated amenities and residences, and a smooth “Book a Visit” flow. Motion-rich and built to sell the lifestyle.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "GSAP", "Framer Motion"],
-    live: "https://cyberking-coder.github.io/basil_vrundavan",
+    live: "https://cyberking-coder.github.io/BASIL_VRUNDAVAN/",
     source: "",
     accent: "#ff9d5c",
     poster: "linear-gradient(135deg,#1a0e07 0%,#3a1d0c 45%,#7a3d14 100%)",
@@ -103,7 +103,7 @@ export const projects = [
     description:
       "A landing site for a Pune coaching institute (Class 8–12) — programs, a photo gallery, Google reviews, and WhatsApp-driven enrollment, all in a polished dark-gold theme.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Lucide"],
-    live: "https://cyberking-coder.github.io/gurukul_academy",
+    live: "https://cyberking-coder.github.io/Gurukul_Academy/",
     source: "",
     accent: "#ffd76a",
     poster: "linear-gradient(135deg,#100d05 0%,#26200c 50%,#43391a 100%)",
@@ -122,7 +122,7 @@ export const projects = [
     description:
       "A bold, high-contrast site for a Mumbai salon & academy — services, gallery, reviews, and a chair-reservation booking flow. Loud, confident, and unmistakably branded.",
     tech: ["HTML", "CSS", "JavaScript"],
-    live: "https://cyberking-coder.github.io/lookout_salon.com",
+    live: "https://cyberking-coder.github.io/Lookout_salon.com/",
     source: "",
     accent: "#ff4d4d",
     poster: "linear-gradient(135deg,#1a0505 0%,#3a0b0b 45%,#7a1414 100%)",
