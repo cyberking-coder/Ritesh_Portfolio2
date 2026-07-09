@@ -147,8 +147,16 @@ export const skills = [
 // ---------------------------------------------------------------------------
 //  SOCIAL / CONTACT
 // ---------------------------------------------------------------------------
+export const contact = {
+  email: "riteshkelkar45@gmail.com",
+  phone: "+91 81808 04366",
+  whatsapp: "918180804366", // digits only, country code first (91 = India)
+  whatsappMessage: "Hi Ritesh, I saw your portfolio and would like to talk about a project.",
+};
+
 export const socials = [
   { label: "GitHub", url: "https://github.com/cyberking-coder", handle: "@cyberking-coder" },
-  { label: "Email", url: "mailto:ar.happinessmovement@gmail.com", handle: "ar.happinessmovement@gmail.com" },
+  { label: "Email", url: `mailto:${contact.email}`, handle: contact.email },
+  { label: "Phone", url: `tel:${contact.phone.replace(/\s/g, "")}`, handle: contact.phone },
   { label: "Portfolio", url: "https://riteshportfolio2026.framer.website", handle: "riteshportfolio2026.framer.website" },
 ];
