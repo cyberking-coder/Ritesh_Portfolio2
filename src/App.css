@@ -161,6 +161,28 @@
 .project-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s cubic-bezier(.2,.7,.2,1); }
 .project-card:hover .project-media img { transform: scale(1.06); }
 
+/* portrait (phone) screenshots — contained over a blurred bed */
+.project-media:has(.portrait-shot) { aspect-ratio: 16/11; }
+.portrait-shot {
+  position: absolute; inset: 0;
+  display: flex; justify-content: center; align-items: flex-start;
+  /* bottom padding keeps the shot clear of the copy block that overlaps the media */
+  padding: 5% 0 17%;
+}
+.portrait-bg {
+  position: absolute; inset: -12%;
+  background-size: cover; background-position: center;
+  filter: blur(30px) saturate(140%); opacity: 0.6; transform: scale(1.1);
+}
+.portrait-tint { position: absolute; inset: 0; opacity: 0.4; }
+.project-media .portrait-shot img {
+  position: relative; z-index: 1;
+  width: auto; height: 100%; max-width: 42%;
+  object-fit: contain; border-radius: 12px;
+  box-shadow: 0 18px 44px rgba(0,0,0,0.55);
+}
+.project-card:hover .project-media .portrait-shot img { transform: scale(1.04); }
+
 /* generated poster fallback */
 .project-poster {
   position: absolute; inset: 0; overflow: hidden;
@@ -365,6 +387,8 @@
   .projects-head { margin-bottom: 30px; }
   .projects-grid { gap: 18px; }
   .project-media { aspect-ratio: 16/11; }
+  .project-media:has(.portrait-shot) { aspect-ratio: 4/3; }
+  .project-media .portrait-shot img { max-width: 58%; }
   .project-poster { padding: 22px 24px; }
   .project-body { padding: 18px 20px 22px; margin-top: -56px; }
   .project-title { font-size: 1.25rem; }

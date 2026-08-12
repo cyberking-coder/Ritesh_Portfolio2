@@ -241,7 +241,15 @@ function ProjectCard({ p, i, onOpen }) {
           style={{ cursor: hasGallery ? "zoom-in" : "default" }}
         >
           {p.image ? (
-            <img src={asset(p.image)} alt={p.title} loading="lazy" />
+            p.portrait ? (
+              <div className="portrait-shot">
+                <span className="portrait-bg" style={{ backgroundImage: `url(${asset(p.image)})` }} />
+                <span className="portrait-tint" style={{ background: p.poster }} />
+                <img src={asset(p.image)} alt={p.title} loading="lazy" />
+              </div>
+            ) : (
+              <img src={asset(p.image)} alt={p.title} loading="lazy" />
+            )
           ) : (
             <div className="project-poster" style={{ background: p.poster }}>
               <span className="poster-glow" style={{ background: `radial-gradient(circle, ${p.accent}55, transparent 65%)` }} />
