@@ -269,7 +269,7 @@ function ProjectCard({ p, i, onOpen }) {
           <div className="project-links">
             {p.live && (
               <a className="plink live" href={p.live} target="_blank" rel="noreferrer">
-                ↗ Live Demo
+                ↗ {p.liveLabel || "Live Demo"}
               </a>
             )}
             {hasGallery && (
@@ -321,7 +321,11 @@ function Lightbox({ project, index, setIndex, onClose }) {
             <div className="lightbox-title">{project.title}</div>
           </div>
           <div className="lightbox-actions">
-            <a className="plink live" href={project.live} target="_blank" rel="noreferrer">↗ Visit live</a>
+            {project.live && (
+              <a className="plink live" href={project.live} target="_blank" rel="noreferrer">
+                ↗ {project.liveLabel || "Visit live"}
+              </a>
+            )}
             <button className="lightbox-close" onClick={onClose} aria-label="close">✕</button>
           </div>
         </div>

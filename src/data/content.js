@@ -101,9 +101,10 @@ export const projects = [
     year: "2026",
     client: "Anurag Rishi",
     description:
-      "A meditation and inner-growth mobile app built for spiritual guide Anurag Rishi. Members sign in with email or Google, browse guided meditations by category, follow paid multi-lesson courses, download sessions for offline play, and track streaks and achievements from their profile — all in a calm, botanical green interface.",
+      "A meditation and inner-growth mobile app built for spiritual guide Anurag Rishi. Members sign in with email or Google, browse guided meditations by category, follow paid multi-lesson courses, download sessions for offline play, and track streaks and achievements from their profile — all in a calm, botanical green interface. Download the app from the Play Store.",
     tech: ["React Native", "Expo", "TypeScript", "Node.js", "MySQL", "Razorpay"],
-    live: "",
+    live: "https://play.google.com/store/apps/details?id=com.knowthyself.app",
+    liveLabel: "Download on Play Store",
     source: "",
     accent: "#5f8a72",
     poster: "linear-gradient(135deg,#0d1512 0%,#1b2b23 50%,#2f4a3c 100%)",
