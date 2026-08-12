@@ -96,6 +96,26 @@ export const projects = [
     featured: false,
   },
   {
+    title: "Know Thyself",
+    category: "Mobile App · Meditation",
+    year: "2026",
+    client: "Anurag Rishi",
+    description:
+      "A meditation and inner-growth mobile app built for spiritual guide Anurag Rishi. Members sign in with email or Google, browse guided meditations by category, follow paid multi-lesson courses, download sessions for offline play, and track streaks and achievements from their profile — all in a calm, botanical green interface. Download the app from the Play Store.",
+    tech: ["React Native", "Expo", "TypeScript", "Node.js", "MySQL", "Razorpay"],
+    live: "https://play.google.com/store/apps/details?id=com.knowthyself.app",
+    liveLabel: "Download on Play Store",
+    source: "",
+    accent: "#5f8a72",
+    poster: "linear-gradient(135deg,#0d1512 0%,#1b2b23 50%,#2f4a3c 100%)",
+    image: "projects/knowthyself-1.png",
+    gallery: [
+      "projects/knowthyself-1.png", "projects/knowthyself-2.png", "projects/knowthyself-3.png",
+      "projects/knowthyself-4.png", "projects/knowthyself-5.png",
+    ],
+    featured: false,
+  },
+  {
     title: "Gurukul Academy",
     category: "Coaching Institute",
     year: "2026",
