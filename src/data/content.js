@@ -108,10 +108,10 @@ export const projects = [
     source: "",
     accent: "#5f8a72",
     poster: "linear-gradient(135deg,#0d1512 0%,#1b2b23 50%,#2f4a3c 100%)",
-    image: "projects/knowthyself-1.png",
+    image: "projects/01_splash.png",
     gallery: [
-      "projects/knowthyself-1.png", "projects/knowthyself-2.png", "projects/knowthyself-3.png",
-      "projects/knowthyself-4.png", "projects/knowthyself-5.png",
+      "projects/01_splash.png", "projects/06_login.png", "projects/03_home.png",
+      "projects/02_courses.png", "projects/04_profile.png", "projects/05_downloads.png",
     ],
     featured: false,
   },
