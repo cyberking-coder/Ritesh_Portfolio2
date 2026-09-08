@@ -176,19 +176,25 @@ export const projects = [
 //    featured    – true = spans a wider tile
 // ---------------------------------------------------------------------------
 export const designs = [
-  // Example (delete when you add real work):
-  // {
-  //   title: "Sample Poster",
-  //   category: "Poster",
-  //   year: "2026",
-  //   client: "",
-  //   description: "Short line on what this design was for and the concept.",
-  //   tools: ["Photoshop", "Illustrator"],
-  //   accent: "#ffd76a",
-  //   image: "designs/sample-1.png",
-  //   gallery: ["designs/sample-1.png", "designs/sample-2.png"],
-  //   featured: false,
-  // },
+  {
+    title: "Real Estate Brochure / Ad Creatives",
+    category: "Real Estate · Concept Creatives",
+    year: "2026",
+    client: "",
+    description:
+      "Real Estate Brochure/Ad Creatives — Concept marketing creatives for fictional property brands, exploring different visual tones (luxury warm, premium dark, corporate clean, minimal elegant). AI-assisted visuals + manual layout, typography, and messaging direction.",
+    tools: ["Photoshop", "AI-assisted visuals", "Typography", "Layout"],
+    accent: "#d9b26a",
+    image: "designs/real-estate-brochure.png",
+    gallery: [
+      "designs/real-estate-brochure.png",
+      "designs/real-estate-ad-1.png",
+      "designs/real-estate-ad-2.png",
+      "designs/real-estate-ad-3.png",
+      "designs/real-estate-ad-4.png",
+    ],
+    featured: true,
+  },
 ];
 
 // ---------------------------------------------------------------------------
