@@ -195,6 +195,26 @@ export const designs = [
     ],
     featured: true,
   },
+  {
+    title: "Product & Packaging Creatives",
+    category: "FMCG · Beauty · Concept Ads",
+    year: "2026",
+    client: "",
+    description:
+      "Concept ad visuals for fictional FMCG/beauty brands — perfume, snacks, skincare, cosmetics. AI-assisted product renders + label design, typography, and prop styling.",
+    tools: ["Photoshop", "AI-assisted renders", "Label Design", "Typography"],
+    accent: "#ff9d5c",
+    image: "designs/product-1.png",
+    gallery: [
+      "designs/product-1.png",
+      "designs/product-2.png",
+      "designs/product-3.png",
+      "designs/product-4.png",
+      "designs/product-5.png",
+      "designs/product-6.jpg",
+    ],
+    featured: true,
+  },
 ];
 
 // ---------------------------------------------------------------------------
