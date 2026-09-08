@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useScroll, useSpring, useTransform } from "framer-motion";
 import "./App.css";
-import { identity, about, projects, skills, socials, contact } from "./data/content";
+import { identity, about, projects, designs, skills, socials, contact } from "./data/content";
 
 /* prefix a public asset path with the deploy base (works in dev + GitHub Pages) */
 const asset = (p) => (p ? import.meta.env.BASE_URL + p.replace(/^\.?\//, "") : p);
@@ -72,6 +72,7 @@ const links = [
   ["Home", "#home"],
   ["About", "#about"],
   ["Work", "#work"],
+  ["Designs", "#designs"],
   ["Skills", "#skills"],
   ["Contact", "#contact"],
 ];
@@ -384,6 +385,90 @@ function Projects() {
   );
 }
 
+/* ---------- designs & creatives ---------- */
+function DesignCard({ d, i, onOpen }) {
+  const hasGallery = d.gallery && d.gallery.length > 0;
+  return (
+    <Reveal className={`design-card glass ${d.featured ? "wide" : ""}`} i={i}>
+      <div
+        className="design-media"
+        onClick={() => hasGallery && onOpen(0)}
+        style={{ cursor: hasGallery ? "zoom-in" : "default" }}
+      >
+        {d.image ? (
+          <img src={asset(d.image)} alt={d.title} loading="lazy" />
+        ) : (
+          <div className="design-poster" style={{ background: `linear-gradient(135deg, ${d.accent}22, #0c0f18)` }}>
+            <span className="poster-cat" style={{ color: d.accent }}>{d.category}</span>
+            <span className="poster-title">{d.title}</span>
+          </div>
+        )}
+        <span className="design-year glass">{d.year}</span>
+        {hasGallery && (
+          <span className="design-gallery-badge glass">⛶ {d.gallery.length} shots</span>
+        )}
+      </div>
+      <div className="design-body">
+        <div className="design-cat" style={{ color: d.accent }}>
+          {d.category}{d.client ? ` · ${d.client}` : ""}
+        </div>
+        <h3 className="design-title">{d.title}</h3>
+        {d.description && <p className="design-desc">{d.description}</p>}
+        {d.tools && d.tools.length > 0 && (
+          <div className="design-tools">
+            {d.tools.map((t) => <span key={t}>{t}</span>)}
+          </div>
+        )}
+      </div>
+    </Reveal>
+  );
+}
+
+function Designs() {
+  const [active, setActive] = useState(null);
+  const [slide, setSlide] = useState(0);
+  const open = (di, si) => { setActive(di); setSlide(si); };
+  const hasAny = designs && designs.length > 0;
+  return (
+    <section id="designs">
+      <div className="container">
+        <div className="projects-head">
+          <div>
+            <Reveal as="div" i={0}><span className="eyebrow">Designs & Creatives</span></Reveal>
+            <Reveal as="h2" className="section-title" i={1}>
+              Graphics I've <span className="gradient-text">designed</span>
+            </Reveal>
+          </div>
+          <Reveal className="muted" i={2}>Posters, logos, social creatives, brand systems.</Reveal>
+        </div>
+        {hasAny ? (
+          <div className="designs-grid">
+            {designs.map((d, i) => (
+              <DesignCard key={d.title} d={d} i={i} onOpen={(si) => open(i, si)} />
+            ))}
+          </div>
+        ) : (
+          <Reveal className="designs-empty glass" i={3}>
+            <div className="designs-empty-icon">✦</div>
+            <h3>New creative work landing soon</h3>
+            <p>A fresh set of posters, logos and brand pieces is being curated for this space.</p>
+          </Reveal>
+        )}
+      </div>
+      <AnimatePresence>
+        {active !== null && (
+          <Lightbox
+            project={designs[active]}
+            index={slide}
+            setIndex={setSlide}
+            onClose={() => setActive(null)}
+          />
+        )}
+      </AnimatePresence>
+    </section>
+  );
+}
+
 /* ---------- skills ---------- */
 function Skills() {
   return (
@@ -469,6 +554,7 @@ export default function App() {
         <Marquee />
         <About />
         <Projects />
+        <Designs />
         <Skills />
         <Contact />
       </main>

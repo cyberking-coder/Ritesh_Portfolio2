@@ -215,6 +215,81 @@
   .project-card.wide { grid-column: span 1; }
 }
 
+/* ========================= DESIGNS & CREATIVES ========================= */
+.designs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.design-card {
+  position: relative; overflow: hidden; padding: 0; cursor: pointer;
+  transition: transform 0.4s cubic-bezier(.2,.7,.2,1), box-shadow 0.4s;
+}
+.design-card.wide { grid-column: span 2; }
+.design-card:hover { transform: translateY(-8px); box-shadow: 0 30px 60px rgba(0,0,0,0.55); }
+.design-media { position: relative; aspect-ratio: 4/5; overflow: hidden; }
+.design-card.wide .design-media { aspect-ratio: 16/10; }
+.design-media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s cubic-bezier(.2,.7,.2,1); }
+.design-card:hover .design-media img { transform: scale(1.06); }
+.design-media::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(5,6,10,0.85) 100%);
+}
+.design-poster {
+  position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center;
+  padding: 28px 32px; gap: 10px;
+}
+.design-year {
+  position: absolute; top: 14px; right: 14px; z-index: 2;
+  font-family: var(--font-display); font-size: 0.72rem; padding: 5px 11px; border-radius: 999px;
+  background: rgba(5,6,10,0.55); backdrop-filter: blur(8px); border: 1px solid var(--border-soft);
+}
+.design-gallery-badge {
+  position: absolute; bottom: 14px; left: 14px; z-index: 3;
+  font-family: var(--font-display); font-size: 0.72rem; font-weight: 600;
+  padding: 6px 12px; border-radius: 999px; color: #fff;
+  opacity: 0; transform: translateY(6px); transition: all 0.3s;
+}
+.design-card:hover .design-gallery-badge { opacity: 1; transform: translateY(0); }
+.design-body { position: relative; z-index: 2; padding: 20px 22px 22px; }
+.design-cat {
+  font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.2em;
+  font-size: 0.66rem; margin-bottom: 8px;
+}
+.design-title { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; letter-spacing: -0.01em; }
+.design-desc { color: var(--muted); font-size: 0.9rem; margin: 10px 0 14px; max-width: 52ch; }
+.design-tools { display: flex; flex-wrap: wrap; gap: 7px; }
+.design-tools span {
+  font-size: 0.7rem; padding: 5px 11px; border-radius: 999px;
+  background: var(--glass-strong); border: 1px solid var(--border-soft); color: #d7dce6;
+}
+
+.designs-empty {
+  padding: 60px 30px; text-align: center; max-width: 620px; margin: 0 auto;
+}
+.designs-empty-icon {
+  font-family: var(--font-display); font-size: 2.4rem; color: var(--gold);
+  margin-bottom: 14px;
+}
+.designs-empty h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; margin-bottom: 10px; }
+.designs-empty p { color: var(--muted); }
+
+@media (max-width: 980px) {
+  .designs-grid { grid-template-columns: repeat(2, 1fr); }
+  .design-card.wide { grid-column: span 2; }
+}
+@media (max-width: 640px) {
+  .designs-grid { grid-template-columns: 1fr; gap: 18px; }
+  .design-card.wide { grid-column: span 1; }
+  .design-body { padding: 16px 18px 20px; }
+  .design-title { font-size: 1.1rem; }
+  .design-desc { font-size: 0.88rem; }
+}
+@media (hover: none) {
+  .design-card:hover { transform: none; }
+  .design-gallery-badge { opacity: 1; transform: none; }
+}
+
 /* ========================= SKILLS ========================= */
 .skills-wrap { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; max-width: 900px; margin: 0 auto; }
 .skill-pill {
