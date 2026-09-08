@@ -9,9 +9,9 @@
 
 export const identity = {
   name: "Ritesh Kelkar",
-  role: "Website & App Developer",
+  role: "Website & App Developer · Graphic Designer",
   tagline:
-    "I build premium websites and apps end-to-end — cinematic front-ends, real payment flows, and conversion-focused experiences that turn visitors into customers.",
+    "I build premium websites and apps end-to-end — and design the graphics that make them unforgettable. Cinematic front-ends, real payment flows, and creative visuals that turn visitors into customers.",
   location: "India",
   availableForWork: true,
   resumeUrl: "",
@@ -153,6 +153,42 @@ export const projects = [
     ],
     featured: false,
   },
+];
+
+// ---------------------------------------------------------------------------
+//  DESIGNS & CREATIVES  (Graphic-design portfolio pieces)
+// ---------------------------------------------------------------------------
+//  Each item renders as a visual card in the "Designs & Creatives" section.
+//  Drop your artwork in `public/designs/<file>.png|jpg|webp` and reference it
+//  with `image: "designs/<file>.png"`. Add a `gallery` array to open a
+//  lightbox with multiple shots (same behavior as projects).
+//
+//  Fields:
+//    title       – piece name
+//    category    – "Poster", "Logo", "Social Post", "Brand Identity", etc.
+//    year        – "2026"
+//    client      – optional
+//    description – 1–2 sentences on the brief and outcome
+//    tools       – array, e.g. ["Photoshop", "Illustrator", "Figma"]
+//    accent      – hex color used for tag/category tint
+//    image       – primary/cover image path
+//    gallery     – optional array of image paths (opens lightbox)
+//    featured    – true = spans a wider tile
+// ---------------------------------------------------------------------------
+export const designs = [
+  // Example (delete when you add real work):
+  // {
+  //   title: "Sample Poster",
+  //   category: "Poster",
+  //   year: "2026",
+  //   client: "",
+  //   description: "Short line on what this design was for and the concept.",
+  //   tools: ["Photoshop", "Illustrator"],
+  //   accent: "#ffd76a",
+  //   image: "designs/sample-1.png",
+  //   gallery: ["designs/sample-1.png", "designs/sample-2.png"],
+  //   featured: false,
+  // },
 ];
 
 // ---------------------------------------------------------------------------
