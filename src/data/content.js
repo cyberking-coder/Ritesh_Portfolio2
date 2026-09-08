@@ -53,7 +53,7 @@ export const projects = [
       "projects/forex-5.png", "projects/forex-7.png", "projects/forex-2.png",
       "projects/forex-6.png",
     ],
-    featured: true,
+    featured: false,
   },
   {
     title: "Basil Vrundavan",
@@ -193,7 +193,7 @@ export const designs = [
       "designs/real-estate-ad-3.png",
       "designs/real-estate-ad-4.png",
     ],
-    featured: true,
+    featured: false,
   },
   {
     title: "Product & Packaging Creatives",
@@ -213,7 +213,7 @@ export const designs = [
       "designs/product-5.png",
       "designs/product-6.jpg",
     ],
-    featured: true,
+    featured: false,
   },
 ];
 
