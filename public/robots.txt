@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ritesh-portfolio2-ashen.vercel.app/sitemap.xml
